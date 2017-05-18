@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/app.css">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript" src="js/angular.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script type="text/javascript" src="js/angular-route.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+</head>
+<body>
+  <h1>Guessing Game</h1><br>
+  <div data-ng-app="myApp.guessGame" data-ng-controller="GuessGame">
+    <div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-xs-3">
+            <div class="form-group">
+              <label class="control-label">Enter Guess : </label>
+              <input type = "number" placeholder="Enter Guess" data-ng-model = "guess">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-3">
+            <div class="form-group">
+              <button data-ng-click="checkGuess()">Check Guess</button>
+              <button data-ng-click="GiveUp()">Give Up</button>
+              <button data-ng-click="Reset()">Start New</button>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-3">
+            <div class="form-group">
+              <span data-ng-bind="msg"></span>
+              <span data-ng-show="giveup" data-ng-bind="numbertoGuess"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

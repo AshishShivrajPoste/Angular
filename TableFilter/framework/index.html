@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/app.css">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript" src="js/angular.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script type="text/javascript" src="js/angular-route.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+</head>
+<body>
+
+  <div data-ng-app="myApp.tablefilter" data-ng-controller="TableFilter">
+    <h1>Lookup App : Unit Search Filter</h1>
+    <div>
+      <div class="form-group">
+        <div class="row">
+        <div class="col-xs-3">
+          <div class="form-group">
+            <label class="control-label">Codes</label><br>
+            <input type = "text"  placeholder="code to search" data-ng-model = "search.code" >
+          </div>
+        </div>
+
+        <div class="col-xs-3">
+          <div  class="form-group">
+            <label class="control-label">Description : </label><br>
+            <input type = "text" placeholder="code to Description" data-ng-model = "search.desc" >
+          </div>
+        </div>
+        <div class="col-xs-3">
+          <div  class="form-group">
+            <label class="control-label">Unit Type </label>
+            <div class="radio">
+              <label>
+                <input type="radio" name="Core" value="Core" data-ng-model="search.type">
+                Core
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="Software Development" value="Software Development" data-ng-model="search.type">
+                Software Development
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="Systems Analysis" value="Systems Analysis" data-ng-model="search.type">
+                Systems Analysis
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="All" value="" data-ng-model="search.type">
+                All
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <td>Unit Codes</td>
+        <td>Units</td>
+        <td>Credit Points</td>
+        <td>Type</td>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr data-ng-repeat="unit in Units | filter:search">
+        <td>{{unit.code}}</td>
+        <td>{{unit.desc}}</td>
+        <td>{{unit.cp}}</td>
+        <td>{{unit.type}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+</body>
+</html>

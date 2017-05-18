@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/app.css">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript" src="js/angular.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <script type="text/javascript" src="js/angular-route.js"></script>
+  <script type="text/javascript" src="appmypost.js"></script>
+</head>
+<body>
+  <h1>Status Posting Web App</h1><br>
+  <div data-ng-app="myApp.statusUpdate" data-ng-controller="StatusUpdate">
+    <div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-xs-3">
+            <div class="form-group">
+              <label class="control-label">Status : </label>
+              <input type = "text" placeholder="Enter Status" data-ng-model = "newStatus" >
+              <button data-ng-click="Add()">Post</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <table class="table">
+      <tbody>
+      <tr data-ng-repeat="s in StatusData">
+        <td>{{s.status}}</td>
+        <td><button data-ng-click="Delete($index)">Delete</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
